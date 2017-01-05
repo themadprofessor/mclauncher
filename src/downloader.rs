@@ -11,12 +11,24 @@ pub struct GameMetadata {
 struct Lib {
     name: String,
     downloads: LibDownloads,
-    rules: Vec<LibRule>
+    rules: Option<Vec<LibRule>>,
+    extract: Option<LibExtract>,
+    natives: Option<LibNatives>
+}
+
+struct LibNatives {
+    linux: String,
+    windows: String,
+    osx: String
 }
 
 struct LibRule {
     action: LibAction,
     os: Option<Os>
+}
+
+struct LibExtract {
+    exclude: Vec<String>
 }
 
 enum LibAction {
@@ -37,6 +49,10 @@ struct LibArtifact {
     sha1: String,
     path: String,
     url: String
+}
+
+struct LibDownloadClassifiers {
+    nativeslinux:
 }
 
 struct GameDownloads {
